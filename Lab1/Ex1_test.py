@@ -24,6 +24,7 @@ def infinity_norm_difference(u: np.ndarray, v: np.ndarray) -> float:
 
 
 def test_matrix_multiplication_methods(number_of_tests: int):
+
     two_norm_differences = []
     two_time_differences = []
 
@@ -74,4 +75,4 @@ def test_matrix_multiplication_methods(number_of_tests: int):
     )
 
 
-# test_matrix_multiplication_methods(5)
+test_matrix_multiplication_methods(10)

@@ -60,4 +60,4 @@ def test_residual_methods(number_of_tests):
     print("The average infinity-norm difference for 50x50 matrices was " + str(statistics.fmean(differences_for_50_by_50)))
     print("On average, the inner product method was " + str(statistics.fmean(times_for_50_by_50)) + " ns slower than the outer product method for 50x50 matrices")
 
-test_residual_methods(5)
+test_residual_methods(10)
