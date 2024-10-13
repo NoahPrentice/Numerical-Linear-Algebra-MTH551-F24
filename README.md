@@ -1,0 +1,1 @@
+All of my submissions and code for the homework assignments in MTH 551, Numerical Linear Algebra, in Fall 2024 taught by Dr. Nathan Gibson. The different assignments are in their respective Lab folders, with code and tests for Exercise $N$ in ``ExN.py`` or ``ExN_test.py``.
