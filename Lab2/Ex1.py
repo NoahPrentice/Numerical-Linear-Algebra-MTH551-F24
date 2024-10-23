@@ -25,13 +25,22 @@ matrices = {
 
 def write_singular_values_to_file():
     singular_values_file = open("Ex1SingularValues.txt", "w")
-    singular_values_print_list = []
+    singular_values = []
+    header = ""
     for matrix_name in matrices:
-        singular_values_print_list.append(matrix_name + ":\n")
         matrix = matrices[matrix_name]
-        for singular_value in linalg.svdvals(matrix):
-            singular_values_print_list.append(str(singular_value) + "\n")
-    singular_values_file.writelines(singular_values_print_list)
+        header += matrix_name + " & "
+        singular_values.append(linalg.svdvals(matrix))
+    singular_values_file.write(header[:-2] + "\\\\ \n")
+    singular_values = np.array(singular_values).T
+    for row in singular_values:
+        next_line = ""
+        for value in row:
+            next_line += str(value) + " & "
+        singular_values_file.write(next_line[:-2] + "\\\\ \n")
+
+
+write_singular_values_to_file()
 
 
 def plot_singular_values_of_matrix(matrix_name):
