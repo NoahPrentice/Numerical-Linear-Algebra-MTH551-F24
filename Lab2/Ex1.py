@@ -13,7 +13,7 @@ reciprical_matrix = np.array(invhilb_matrix, copy=True)
 for i in range(reciprical_matrix.shape[0]):
     for j in range(reciprical_matrix.shape[1]):
         reciprical_matrix[i, j] = 1 / reciprical_matrix[i, j]
-# Create a dictionary that maps the matrix names to the matrices
+
 matrices = {
     "rand_matrix": rand_matrix,
     "randn_matrix": randn_matrix,
@@ -40,13 +40,13 @@ def plot_singular_values_of_matrix(matrix_name):
     plt.figure()
     plt.scatter(range(singular_values.size), singular_values)
     plt.title(
-        "matrix_name"
+        matrix_name
         + ", norm = "
-        + str(round(np.linalg.norm(matrix, 2), 1))
+        + str("{:0.2e}".format(np.linalg.norm(matrix, 2)))
         + ", det = "
-        + str("{:0.2e}".format(np.linalg.det(matrix)))
+        + str((np.linalg.det(matrix)))
         + ", cond = "
-        + str(round(np.linalg.cond(matrix), 1))
+        + str("{:0.2e}".format(np.linalg.cond(matrix)))
     )
     plt.ylabel(r"$\sigma_i$")
     plt.xlabel(r"$i$")
