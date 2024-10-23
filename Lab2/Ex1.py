@@ -9,7 +9,7 @@ rand_matrix = np.random.rand(m, m)
 randn_matrix = np.random.randn(m, m)
 hilb_matrix = linalg.hilbert(m)
 invhilb_matrix = linalg.invhilbert(m)
-reciprocal_matrix = np.array(invhilb_matrix, copy=True)
+reciprocal_matrix = np.array(hilb_matrix, copy=True)
 for i in range(reciprocal_matrix.shape[0]):
     for j in range(reciprocal_matrix.shape[1]):
         reciprocal_matrix[i, j] = 1 / reciprocal_matrix[i, j]
@@ -64,7 +64,6 @@ def write_singular_values_to_file():
             next_line += str(value) + " & "
         singular_values_file.write(next_line[:-2] + "\\\\ \n")
 
-
 def plot_singular_values_of_matrix(matrix_name):
     matrix = matrices[matrix_name]
     singular_values = linalg.svdvals(matrix)
@@ -75,7 +74,7 @@ def plot_singular_values_of_matrix(matrix_name):
         + ", norm = "
         + str("{:0.2e}".format(np.linalg.norm(matrix, 2)))
         + ", det = "
-        + str((np.linalg.det(matrix)))
+        + str("{:0.2e}".format(np.linalg.det(matrix)))
         + ", cond = "
         + str("{:0.2e}".format(np.linalg.cond(matrix)))
     )
