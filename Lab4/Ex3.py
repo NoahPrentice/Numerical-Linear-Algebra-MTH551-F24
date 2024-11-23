@@ -29,13 +29,6 @@ def error_with_fixed_svd():
     A = U @ S @ V.T
 
     U2, S2, V2h = np.linalg.svd(A)
-    V2 = V2h.T
-    U, X = np.linalg.qr(np.random.randn(n, n))
-    V, X = np.linalg.qr(np.random.randn(n, n))
-    S = np.diag(np.flip(np.sort(np.random.rand(n, 1), None)))
-
-    A = U @ S @ V.T
-    U2, S2, V2h = np.linalg.svd(A)
     S2 = np.diag(S2)
     V2 = V2h.T
 
@@ -55,16 +48,9 @@ def error_with_fixed_svd():
 def error_with_fixes_and_sixth_power():
     U, X = np.linalg.qr(np.random.randn(n, n))
     V, X = np.linalg.qr(np.random.randn(n, n))
-    S = np.diag(np.flip(np.sort(np.random.rand(n, 1), None)))
-    A = U @ S @ V.T
-
-    U2, S2, V2h = np.linalg.svd(A)
-    V2 = V2h.T
-    U, X = np.linalg.qr(np.random.randn(n, n))
-    V, X = np.linalg.qr(np.random.randn(n, n))
     S = np.power(np.diag(np.flip(np.sort(np.random.rand(n, 1), None))), 6)
-
     A = U @ S @ V.T
+
     U2, S2, V2h = np.linalg.svd(A)
     S2 = np.power(np.diag(S2), 6)
     V2 = V2h.T
@@ -96,4 +82,4 @@ def part_c():
         error_with_fixes_and_sixth_power()
 
 
-part_b()
+part_c()
